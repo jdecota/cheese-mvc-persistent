@@ -20,12 +20,10 @@ public class MenuController {
 
     /*TODO Write Handler method index that uses menuDao to retrieve all menus and
     display them in a list*/
+//
+//    @RequestMapping (value="")
+//    public String index (Model model);
+//
+//    public void addItem(Cheese item){
 
-    @RequestMapping (value="")
-    public String index (Model model)
-
-    public void addItem(Cheese item){
-
-
-    }
 }
