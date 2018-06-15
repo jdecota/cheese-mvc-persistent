@@ -1,6 +1,10 @@
 package org.launchcode.models.forms;
 
+import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
+
 import javax.persistence.*;
+import javax.transaction.Transactional;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.util.ArrayList;
@@ -17,17 +21,13 @@ import java.util.List;
     @Size(min=3, max=15)
     private String name;
 
-    @ManyToMany //TODO add this? (mappedBy = "menus")
+    @ManyToMany (mappedBy = "menus")
     private List<Cheese> cheeses;
 
     public Menu() {}
 
         public int getId() {
             return id;
-        }
-
-        public void setId(int id) {
-            this.id = id;
         }
 
         public String getName() {
@@ -41,4 +41,4 @@ import java.util.List;
         public List<Cheese> getCheeses() {
             return cheeses;
         }
-    }
+}

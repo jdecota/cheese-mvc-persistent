@@ -8,6 +8,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 
 @Repository
-public interface CheeseDao extends CrudRepository<Cheese, Integer> {
+public interface CheeseDao extends CrudRepository <Cheese, Integer> {
 
 }
