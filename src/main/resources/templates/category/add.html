@@ -1,8 +1,14 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org/">
-<head></head>
+<head th:replace="fragments :: head"></head>
+
 <body class="container">
-<h1 th:text="${title}">Add Category</h1>
+
+<h1 th:text="${title}">Default Title</h1>
+
+<nav th:replace="fragments :: navigation"></nav>
+
+<hr />
 
 <form method="post" style="max-width:600px;" th:object="${category}">
     <div class="form-group">
@@ -10,9 +16,12 @@
         <input class="form-control" th:field="*{name}" />
         <span th:errors="*{name}" class="error"></span>
     </div>
-    <hr />
+
     <input type="submit" value="Add Category" />
 </form>
+
+<hr />
+<nav th:replace="fragments :: navBottomCategory"></nav>
 
 </body>
 </html>

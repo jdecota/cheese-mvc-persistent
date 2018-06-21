@@ -1,17 +1,12 @@
 package org.launchcode.models.forms;
 
-import org.springframework.data.repository.CrudRepository;
-import org.springframework.stereotype.Repository;
-
 import javax.persistence.*;
-import javax.transaction.Transactional;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-import java.util.ArrayList;
 import java.util.List;
 
-    @Entity
-    public class Menu {
+@Entity
+public class Menu {
 
     @Id
     @GeneratedValue
@@ -21,24 +16,33 @@ import java.util.List;
     @Size(min=3, max=15)
     private String name;
 
-    @ManyToMany (mappedBy = "menus")
-    private List<Cheese> cheeses;
+    @ManyToMany
+    private List<Cheese> cheeses;      //TODO was private, is it ok that i changed it for access?
+
+    public Menu(int id, String name, List<Cheese> cheeses) {
+        this.id = id;
+        this.name = name;
+        this.cheeses = cheeses;
+    }
 
     public Menu() {}
 
-        public int getId() {
-            return id;
-        }
+    //TODO review below item
+    public void addItem(Cheese item) {cheeses.add(item);}
 
-        public String getName() {
-            return name;
-        }
+    public int getId() {
+        return id;
+    }
 
-        public void setName(String name) {
-            this.name = name;
-        }
+    public String getName() {
+        return name;
+    }
 
-        public List<Cheese> getCheeses() {
-            return cheeses;
-        }
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public List<Cheese> getCheeses() {
+        return cheeses;
+    }
 }

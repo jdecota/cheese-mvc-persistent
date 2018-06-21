@@ -4,7 +4,9 @@
 
 <body class="container">
 
-<a href="/category/add">Add Category</a>
+<h1 th:text="${title}">Default Title</h1>
+
+<nav th:replace="fragments :: navigation"></nav>
 
 <h1 th:text="${title}">Category List</h1>
 
@@ -12,7 +14,8 @@
     <li th:text="${category.name}"></li>
 </ul>
 
-
+<hr />
+<nav th:replace="fragments :: navBottomCategory"></nav>
 
 </body>
 </html>

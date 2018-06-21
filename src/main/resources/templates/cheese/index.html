@@ -1,5 +1,7 @@
 <!DOCTYPE html>
+
 <html lang="en" xmlns:th="http://www.thymeleaf.org/">
+
 <head th:replace="fragments :: head"></head>
 
 <body class="container">
@@ -9,7 +11,6 @@
 <nav th:replace="fragments :: navigation"></nav>
 
 <p th:unless="${cheeses} and ${cheeses.size()}">no cheese :(</p>
-
 
 <table class="table">
 
@@ -26,7 +27,9 @@
     </tr>
 
 </table>
-<nav th:replace="fragments :: navigationBottom"></nav>
+
+<hr />
+<nav th:replace="fragments :: navBottomCheese"></nav>
 
 </body>
 </html>

@@ -1,18 +1,20 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org/">
-<head>
-
-</head>
+<head th:replace="fragments :: head"></head>
 
 <body class="container">
+<h1 th:text="${title}">Title Goes Here</h1>
 
 <nav th:replace="fragments :: navigation"></nav>
 
-<h1 th:text="${title}">Menu Items</h1>
-
-<ul th:each="cheese : ${cheeses}">
-    <li th:text="${cheese.name}"></li>
+<ul>
+    <li th:each="cheese : ${cheeses}" th:text="${cheese.name}">Cheese Name Goes Here</li>
 </ul>
-<p><a th:ref="'menu/add-item' + ${menu.id}">Add Cheese</a></p>
+
+<p th:unless="${cheeses.size()}"><i>No Cheese Yet</i></p>
+
+<hr />
+<p><a th:href="'/menu/add-item/' + ${menuId}">Add Cheese</a></p>
+
 </body>
 </html>
